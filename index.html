@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ТЗ Avaho</title>
+</head>
+<style>
+.btn {
+    max-width: 50px;
+    margin: 15px;
+    font-size: 16px;
+}
+
+.btn button {
+    width: 100%;
+    display: inline;
+    margin: 5px;
+    padding: 2px 10px;
+    font-size: 16px;
+}
+</style>
+
+<body>
+    <div class="btn">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+   $(document).ready(function() {
+        const buttons = $('button').toArray();
+        $.each(buttons, function(button, index) {
+            $(this).on("click", function() {
+                let lastElement = buttons.pop();
+                lastElement.before(lastElement, buttons[1]);
+                buttons.unshift(lastElement);
+            })
+        })
+    });
+    </script>
+</body>
+
+</html>
